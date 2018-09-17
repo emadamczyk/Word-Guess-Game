@@ -6,16 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EA's Word Guess Game</title>
     <!-- Added a link to Bootstrap-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Play" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <header class="wrapper">
+            <h1>Welcome to Hangman!</h1>
+            <h3>Press any letter to start guessing.</h3>
+            <h3>You have 12 guesses.</h3>
+        </header>
+    </div>
+    <div class="wrapper" id="game">
+        <p>Wins: <span id="winNum"></span></p>
+        <p>Losses: <span id="lossNum"></span></p>
+        <p>Letters guessed: <span id=letterGuess></span></p>
+        <p>Remaining guesses: <span id=guessNum></span></p>
+
+    </div>
     <!-- use grid - multiple columns to display the letters chosen and word selection or hangman -->
 
     <!-- create js code for game and later paste into game.js -->
     <script>
     //HTML: Welcome to Hangman. Press any letter to begin guessing
     //display wins, losses, guesses, # guesses remaining
-    //player guesses a letter (use event key - onkeyup)
+    //player guesses a letter (use event key - onkeyup)]
+    //create if statements to see if letter guess is in the word, else log as a guessed letter or for loops?
+    //reduce guess count by one
+    //count # of guesses max 12 (start with var guess = 0;guess++)
     //display each letter guess or place it in the word
     //randomly choose a new word and reset the game
 

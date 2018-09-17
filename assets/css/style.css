@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+
+}
+
+header {
+    font-family: 'Play', sans-serif;
+    
+}
+
+.wrapper {
+    margin: 10px;
+}
+
+
+
+#game {
+    font-family: 'Amatic SC', cursive;
+    font-size: 32px;
+}
