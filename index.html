@@ -23,7 +23,7 @@
     <div class="wrapper" id="game">
         <p>Wins: <span id="winNum"></span></p>
         <p>Losses: <span id="lossNum"></span></p>
-        <p>Letters guessed: <span id=playerGuess></span></p>
+        <p>Letters guessed: <span id=letterGuess></span></p>
         <p>Remaining guesses: <span id=guessNum></span></p>
 
     </div>
@@ -34,30 +34,61 @@
     //HTML: Welcome to Hangman. Press any letter to begin guessing
     //display wins, losses, guesses, # guesses remaining
     //create an array that lists all possible word choices
-    var randomWord = ["bicycle", "derailleur", "saddle", "handlebar", "wheel", "pedals", "brakes", "bell", "spokes", "chain", "saddle", "top tube", "crank arm", "bottom bracket", "spokes", "fork", "tire", "kickstand"]
-    //declare and initialize variable
+    var randomWordChoices = ["bicycle", "derailleur", "saddle", "handlebar", "wheel", "pedals", "brakes"]
+    var randomWordSelection = randomWordChoices[Math.floor(Math.random() * randomWordChoices.length)];
+    
+    console.log(randomWordSelection);
+    
+    //var answerArray = [];
+    //for (var i = 0; i < randomWordSelection.length; i++) {
+      //  answerArray[i] = "_";
+    //}
+
+    //declare and initialize variable to hold number of wins, losses, and guesses; all start at 0.
     var wins = 0;
     var losses = 0;
-    var guesses = 15;
+    var guesses = 12;
     
-    //initialize HTML elements
-    var playerGuess = document.getElementById("playerGuess");
     
+    //create for loop to determine player has a guess remaining
     //determines which letter a player guesses (use event key - onkeypress)
     document.onkeypress = function(event) {
         var playerGuess = event.key;
-        //console.log("Letters guessed: " + playerGuess);
-        
+        //randomly choose a new word and/or reset the game
+        //console.log(answerArray.join(" "));
+        //answerArray.join.innerHTML(" ");
+        //for (var j = 0; j < randomWordSelection.length; j++) {
+          //  if (randomWordSelection[j] === playerGuess) {
+            //    answerArray[j] = playerGuess;
+              //  guesses--;
+            //} else {
+                console.log("Letters guessed: " + playerGuess);
+              //  playerGuess.textContent = "Letters guessed:";
+              //  guesses--;
+        //}   
     }
+
+    
+    
+    //is there a way to not reselect a word already chosen?
     //create if statements to see if letter guess is in the word, else log as a guessed letter or for loops?
+    //for (var i = 0; i < word.length; i++){
+        
+    //}
     //reduce guess count by one
     //count # of guesses max 12 (start with var guess = 0;guess++)
     //display each letter guess or place it in the word
-    //randomly choose a new word and reset the game
+    //create variables to hold references to places in HTML to display to page
+    
+    //var winsDisplay = document.getElementById("winNum");
+    //var lossesDisplay = document.getElementById("lossNum");
+    //var letterGuessDisplay = document.getElementById("letterGuess");
+    
+    
+    //var playerGuess = document.getElementById("playerGuess");
+    
 
-    //create object with array of possible word choices
-
-    //
+    
     
     
     </script>
