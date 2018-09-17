@@ -63,7 +63,7 @@
     //determines which letter a player guesses (use event key - onkeypress)
     document.onkeypress = function(event) {
         var playerGuess = event.key;
-        letterGuesses.push(playerGuess);
+        //letterGuesses.push(playerGuess);
         //randomly choose a new word and/or reset the game
         //console.log(answerArray.join(" "));
         //answerArray.join.innerHTML(" ");
@@ -73,7 +73,8 @@
               //  guesses--;
             //} else {
                 console.log("Letters guessed: " + playerGuess);
-              letterGuessDisplay.textContent =  playerGuess.append();// ???
+              letterGuessDisplay.textContent =  letterGuesses;
+              letterGuesses.push(playerGuess);// ???
               console.log("Remaining guesses: " +  guessesLeft--);
         //}   
     }
