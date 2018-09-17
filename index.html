@@ -12,16 +12,18 @@
 </head>
 <body>
     <div class="container">
+        <!--Instructions-->
         <header class="wrapper">
             <h1>Welcome to Hangman!</h1>
             <h3>Press any letter to start guessing.</h3>
             <h3>You have 12 guesses.</h3>
         </header>
     </div>
+    <!--Game play area-->
     <div class="wrapper" id="game">
         <p>Wins: <span id="winNum"></span></p>
         <p>Losses: <span id="lossNum"></span></p>
-        <p>Letters guessed: <span id=letterGuess></span></p>
+        <p>Letters guessed: <span id=playerGuess></span></p>
         <p>Remaining guesses: <span id=guessNum></span></p>
 
     </div>
@@ -31,7 +33,22 @@
     <script>
     //HTML: Welcome to Hangman. Press any letter to begin guessing
     //display wins, losses, guesses, # guesses remaining
-    //player guesses a letter (use event key - onkeyup)]
+    //create an array that lists all possible word choices
+    var randomWord = ["bicycle", "derailleur", "saddle", "handlebar", "wheel", "pedals", "brakes", "bell", "spokes", "chain", "saddle", "top tube", "crank arm", "bottom bracket", "spokes", "fork", "tire", "kickstand"]
+    //declare and initialize variable
+    var wins = 0;
+    var losses = 0;
+    var guesses = 15;
+    
+    //initialize HTML elements
+    var playerGuess = document.getElementById("playerGuess");
+    
+    //determines which letter a player guesses (use event key - onkeypress)
+    document.onkeypress = function(event) {
+        var playerGuess = event.key;
+        //console.log("Letters guessed: " + playerGuess);
+        
+    }
     //create if statements to see if letter guess is in the word, else log as a guessed letter or for loops?
     //reduce guess count by one
     //count # of guesses max 12 (start with var guess = 0;guess++)
@@ -39,6 +56,7 @@
     //randomly choose a new word and reset the game
 
     //create object with array of possible word choices
+
     //
     
     
