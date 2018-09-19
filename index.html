@@ -16,48 +16,56 @@
         <header class="wrapper">
             <h1>Welcome to Hangman!</h1>
             <h3>Press any letter to start guessing.</h3>
-            <h3>You have 12 guesses.</h3>
+            <h3>You are allowed 12 incorrect guesses.</h3>
         </header>
     </div>
     <!--Game play area-->
     <div class="wrapper" id="game">
         <p>Wins: <span id="winNum"></span></p>
         <p>Losses: <span id="lossNum"></span></p>
-        <p>Letters guessed: <span id="letterGuess"></span></p>
+        <p>Letters guessed: <span id="incorrectGuess"></span></p>
         <p>Remaining guesses: <span id="guessNum"></span></p>
+        <h2 id="underscores"></h2>
 
     </div>
     <!-- use grid - multiple columns to display the letters chosen and word selection or hangman -->
 
     <!-- create js code for game and later paste into game.js -->
     <script>
-    //HTML: Welcome to Hangman. Press any letter to begin guessing
+    
     //display wins, losses, guesses, # guesses remaining
     //create an array that lists all possible word choices
     var randomWordChoices = ["bicycle", "derailleur", "saddle", "handlebar", "wheel", "pedals", "brakes"]
-    var randomWordSelection = randomWordChoices[Math.floor(Math.random() * randomWordChoices.length)];
+    var randomWord = randomWordChoices[Math.floor(Math.random() * randomWordChoices.length)];
+    var underscoreWord = "";
+    console.log(randomWord);
+    var underscoreReplace = document.getElementById("underscores");
+    var winsDisplay = document.getElementById("winNum");
+    var lossesDisplay = document.getElementById("lossNum");
+    var incorrectGuessDisplay = document.getElementById("incorrectGuess");
+    //var lettersCorrect = [];
+
+    for (var i = 0; i < randomWord.length; i++) {
+      underscoreWord += "_";
+    }
     
-    console.log(randomWordSelection);
-    
-    //var answerArray = [];
-    //for (var i = 0; i < randomWordSelection.length; i++) {
-      //  answerArray[i] = "_";
+    //var randomWord = [];
+    //for (var i = 0; i < randomWord.length; i++) {
+      //randomWordChoices[i] = "_";
     //}
+
+    underscoreReplace.innerText = underscoreWord;
 
     //declare and initialize variable to hold number of wins, losses, and guesses; all start at 0.
     var wins = 0;
     var losses = 0;
     var guessesLeft = 11; //starts at this number upon initial key press (which is 12 counting down)
     var letterGuesses = [];
-
-    
-    winsDisplay = document.getElementById("winNum");
-    lossesDisplay = document.getElementById("lossNum");
-    letterGuessDisplay = document.getElementById("letterGuess");
-    
     
     //var playerGuess = document.getElementById("playerGuess");
-    
+    // getAsteriskWord = (chosen) => {
+    // loop over 
+    //}
     
     //create for loop to determine player has a guess remaining
     //determines which letter a player guesses (use event key - onkeypress)
@@ -73,7 +81,7 @@
               //  guesses--;
             //} else {
                 console.log("Letters guessed: " + playerGuess);
-              letterGuessDisplay.textContent =  letterGuesses;
+              incorrectGuessDisplay.textContent =  letterGuesses; 
               letterGuesses.push(playerGuess);// ???
               console.log("Remaining guesses: " +  guessesLeft--);
         //}   

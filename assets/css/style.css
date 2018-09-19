@@ -29,3 +29,8 @@ header {
     font-family: 'Amatic SC', cursive;
     font-size: 32px;
 }
+
+#underscores {
+    letter-spacing: 10px;
+    font-weight: bolder;
+}
