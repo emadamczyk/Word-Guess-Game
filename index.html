@@ -15,8 +15,8 @@
         <!--Instructions-->
         <header class="wrapper">
             <h1>Welcome to Hangman!</h1>
-            <h3>Press any letter to start guessing.</h3>
             <h3>You are allowed 12 incorrect guesses.</h3>
+            <h3 id="startGame"></h3>
         </header>
     </div>
     <!--Game play area-->
@@ -43,13 +43,22 @@
     var winsDisplay = document.getElementById("winNum");
     var lossesDisplay = document.getElementById("lossNum");
     var incorrectGuessDisplay = document.getElementById("incorrectGuess");
-    //var lettersCorrect = [];
+    var lettersCorrect = [];
+    var incorrectGuess = [];
+    var startGame = document.getElementById("startGame");
+    var start = "Press any letter to start guessing.";
+    //var answerArray = [];
+    //for (var i = 0; i < randomWord.length; i++) {
+      //  answerArray[i] = "_";
+    //}
+
+    var lettersCorrect = randomWord[i];
 
     for (var i = 0; i < randomWord.length; i++) {
       underscoreWord += "_";
     }
     
-    //var randomWord = [];
+    
     //for (var i = 0; i < randomWord.length; i++) {
       //randomWordChoices[i] = "_";
     //}
@@ -69,8 +78,21 @@
     
     //create for loop to determine player has a guess remaining
     //determines which letter a player guesses (use event key - onkeypress)
-    document.onkeypress = function(event) {
+
+    //if (guessesLeft >= 0 && randomWord)
+    if (lettersCorrect > 0 && losses <= 10) {
+        console.log(startGame);
+        startGame.innerText = start;
+        
+    } else {
+        console.log("No more hangman for you!");
+    }
+
+    document.onkeyup = function(event) {
         var playerGuess = event.key;
+        document.getElementById("incorrectGuess");
+        //console.log("Letters guessed: " + playerGuess);
+        
         //letterGuesses.push(playerGuess);
         //randomly choose a new word and/or reset the game
         //console.log(answerArray.join(" "));
@@ -80,7 +102,12 @@
             //    answerArray[j] = playerGuess;
               //  guesses--;
             //} else {
-                console.log("Letters guessed: " + playerGuess);
+        //if letter not in the word
+        if (randomWord.indexOf(playerGuess) < 0) {
+            //log incorrect letter guess and remove one guess
+            console.log(playerGuess);
+
+        }        
               incorrectGuessDisplay.textContent =  letterGuesses; 
               letterGuesses.push(playerGuess);// ???
               console.log("Remaining guesses: " +  guessesLeft--);
