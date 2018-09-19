@@ -43,7 +43,7 @@
     var winsDisplay = document.getElementById("winNum");
     var lossesDisplay = document.getElementById("lossNum");
     var incorrectGuessDisplay = document.getElementById("incorrectGuess");
-    var lettersCorrect = [];
+    var lettersCorrect = []; //counts correct letters
     var incorrectGuess = [];
     var startGame = document.getElementById("startGame");
     var start = "Press any letter to start guessing.";
@@ -80,7 +80,7 @@
     //determines which letter a player guesses (use event key - onkeypress)
 
     //if (guessesLeft >= 0 && randomWord)
-    if (lettersCorrect > 0 && losses <= 10) {
+    if (losses <= 10) {
         console.log(startGame);
         startGame.innerText = start;
         
@@ -90,8 +90,17 @@
 
     document.onkeyup = function(event) {
         var playerGuess = event.key;
-        document.getElementById("incorrectGuess");
-        //console.log("Letters guessed: " + playerGuess);
+        incorrectGuess.push(playerGuess);
+        incorrectGuessDisplay.innerText = incorrectGuess;
+        console.log("Letters guessed: " + playerGuess);
+        //if (randomWord.includes(playerGuess)) {
+          //  allGuesses.push(playerGuess);
+            //document.getElementById("letterGuess").innerText = allGuesses;
+        //}
+        if (randomWord.indexOf(i ,playerGuess) != 1) {
+            i = randomWord.indexOf(i, playerGuess) + 1;
+            
+        }    
         
         //letterGuesses.push(playerGuess);
         //randomly choose a new word and/or reset the game
@@ -105,12 +114,12 @@
         //if letter not in the word
         if (randomWord.indexOf(playerGuess) < 0) {
             //log incorrect letter guess and remove one guess
-            console.log(playerGuess);
+            console.log("correct guess: " + playerGuess);
 
         }        
-              incorrectGuessDisplay.textContent =  letterGuesses; 
-              letterGuesses.push(playerGuess);// ???
-              console.log("Remaining guesses: " +  guessesLeft--);
+              //incorrectGuessDisplay.textContent =  letterGuesses; 
+              //letterGuesses.push(playerGuess);// ???
+              //console.log("Remaining guesses: " +  guessesLeft--);
         //}   
     }
 
