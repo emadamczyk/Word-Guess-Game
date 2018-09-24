@@ -160,6 +160,8 @@ document.onkeyup = function(event) {
           ).innerText = underscoreWord.join(" ");
           //log wins
           if (letterCounter >= randomWord.length) {
+            var audio = "<audio autoplay = 'autoplay' >" + "<source src='assets/sounds/bell.mp3' type='audio/mpeg'></audio>";
+		document.querySelector("#audio").innerHTML = audio;
             alert("You Win!");
             wins++;
             winsDisplay.innerText = wins;

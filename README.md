@@ -10,4 +10,4 @@ Throughout this process I reworked the .js script multiple times to gain the fun
 
 I did get the psychic game to work first; getting the word guess to work proved to be more of a challenge.
 
-Added bg image to the page.
+Added bg image to the page and a bike bell sound confirmation for each win.
