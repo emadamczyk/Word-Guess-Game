@@ -36,7 +36,11 @@ var randomWordChoices = [
   "handlebar",
   "wheel",
   "pedals",
-  "brakes"
+  "brakes",
+  "bell",
+  "spokes",
+  "chain",
+  "kickstand"
 ];
 var randomWord;
 
@@ -61,6 +65,7 @@ var startGame = document.getElementById("startGame");
 var start = "Press any letter to start guessing.";
 
 function playNewGame() {
+  //document.getElementById("underscores").innerText = "";
   randomWord =
     randomWordChoices[Math.floor(Math.random() * randomWordChoices.length)];
   console.log(randomWord);
@@ -76,7 +81,7 @@ function playNewGame() {
   }
 }
 
-if (losses <= 7) {
+if (losses <= 3) {
   console.log(startGame);
   startGame.innerText = start;
   document.getElementById("guessNum").innerText = guessesLeft;
@@ -84,6 +89,7 @@ if (losses <= 7) {
 } else {
   console.log("No more hangman for you!");
 }
+
 //var answerArray = [];
 //for (var i = 0; i < randomWord.length; i++) {
 //  answerArray[i] = "_";
@@ -153,10 +159,11 @@ document.onkeyup = function(event) {
             "underscores"
           ).innerText = underscoreWord.join(" ");
           //log wins
-          if (letterCounter > randomWord.length) {
+          if (letterCounter >= randomWord.length) {
             alert("You Win!");
             wins++;
             winsDisplay.innerText = wins;
+            document.getElementById("underscores").innerHTML = "";
             playNewGame();
           }
         }
